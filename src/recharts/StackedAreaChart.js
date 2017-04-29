@@ -1,28 +1,38 @@
 import React from 'react';
-import { AreaChart, Area, CartesianGrid, XAxis, YAxis } from 'recharts';
+import { AreaChart, Area, CartesianGrid, Tooltip, XAxis, YAxis } from 'recharts';
+
+const metadata = {
+  brand1: '#8884d8',
+  brand2: '#82ca9d',
+  brand3: '#ffc658'
+};
 
 const data = [
-  { name: 'Page A', uv: 4000, pv: 2400, amt: 2400 },
-  { name: 'Page B', uv: 3000, pv: 1398, amt: 2210 },
-  { name: 'Page C', uv: 2000, pv: 9800, amt: 2290 },
-  { name: 'Page D', uv: 2780, pv: 3908, amt: 2000 },
-  { name: 'Page E', uv: 1890, pv: 4800, amt: 2181 },
-  { name: 'Page F', uv: 2390, pv: 3800, amt: 2500 },
-  { name: 'Page G', uv: 3490, pv: 4300, amt: 2100 },
+  { name: '01/01', brand1: 40, brand2: 24, brand3: 24 },
+  { name: '01/02', brand1: 30, brand2: 13, brand3: 22 },
+  { name: '01/03', brand1: 20, brand2: 98, brand3: 22 },
+  { name: '01/04', brand1: 27, brand2: 39, brand3: 20 },
+  { name: '01/05', brand1: 18, brand2: 48, brand3: 21 },
+  { name: '01/06', brand1: 23, brand2: 38, brand3: 25 },
+  { name: '01/07', brand1: 34, brand2: 43, brand3: 21 },
 ];
+
+const WIDTH = 600;
+const HEIGHT = 400;
 
 const StackedAreaChart = () => {
   return (
     <AreaChart
-      width={ 600 }
-      height={ 400 }
+      width={ WIDTH }
+      height={ HEIGHT }
       data={ data }>
+      <Tooltip />
       <XAxis dataKey="name" />
       <YAxis />
-      <CartesianGrid strokeDasharray="3 3" />
-      <Area type='monotone' dataKey='uv' stackId="1" stroke='#8884d8' fill='#8884d8' />
-      <Area type='monotone' dataKey='pv' stackId="1" stroke='#82ca9d' fill='#82ca9d' />
-      <Area type='monotone' dataKey='amt' stackId="1" stroke='#ffc658' fill='#ffc658' />
+      <CartesianGrid />
+      <Area type="monotone" dataKey="brand1" stackId="1" stroke="#8884d8" fill="#8884d8" />
+      <Area type="monotone" dataKey="brand2" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
+      <Area type="monotone" dataKey="brand3" stackId="1" stroke="#ffc658" fill="#ffc658" />
     </AreaChart>
   )
 };
