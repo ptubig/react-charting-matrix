@@ -1,0 +1,29 @@
+.container {
+  position: relative;
+}
+
+.yAxis {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 100%;
+}
+
+.xAxis {
+  position: relative;
+  left: 40px;
+}
+
+.chart {
+  position: relative;
+  left: 40px;
+}
+
+.x_grid_d3 .tick {
+  display: none;
+}
+
+.y_grid .tick {
+  display: none;
+}

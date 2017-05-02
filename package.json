@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "d3": "^3.5.17",
+    "moment": "^2.18.1",
     "nvd3": "^1.8.5",
     "plottable": "^3.0.0",
     "react": "^15.5.4",

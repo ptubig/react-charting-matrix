@@ -29,10 +29,9 @@ const StackedAreaChart = () => {
       <Tooltip />
       <XAxis dataKey="name" />
       <YAxis />
-      <CartesianGrid />
-      <Area type="monotone" dataKey="brand1" stackId="1" stroke="#8884d8" fill="#8884d8" />
-      <Area type="monotone" dataKey="brand2" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
-      <Area type="monotone" dataKey="brand3" stackId="1" stroke="#ffc658" fill="#ffc658" />
+      <Area type="monotone" dataKey="brand1" stackId="1" stroke="none" fill="#606060" />
+      <Area type="monotone" dataKey="brand2" stackId="1" stroke="none" fill="#414141" />
+      <Area type="monotone" dataKey="brand3" stackId="1" stroke="none" fill="#1c1c1c" />
     </AreaChart>
   )
 };
