@@ -6,9 +6,8 @@
 | --- | --- | --- | --- | --- | --- 
 | URL | http://recharts.org/#/en-US/ | http://formidable.com/open-source/victory/ | http://plottablejs.org/ | http://nvd3.org/ | http://code.shutterstock.com/rickshaw/
 | React-Style Components | **X** | **X** |  |  |  
-| Stacked Area Chart | **X** | **X** |  |  | 
-| Bar Chart (Horizontal)
-| Bar Chart (Vertical)
+| Stacked Area Chart | **X** | **X** | **X**  | **X**  | **X** 
+| Grouped Bar Chart | **X** | **X** | **X** |  |
 | Customization
 | Events
 | Animation | **X** | **X** |  | **X** | 

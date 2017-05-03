@@ -33,9 +33,9 @@ class GroupedBarChart extends Component {
       .addDataset(new Plottable.Dataset(brand1Data).metadata(0))
       .addDataset(new Plottable.Dataset(brand2Data).metadata(1))
       .addDataset(new Plottable.Dataset(brand3Data).metadata(2))
-      .x(function(d) { return d.name; }, xScale)
-      .y(function(d) { return d.value; }, yScale)
-      .attr('fill', function(d, i, dataset) { return dataset.metadata(); }, colorScale)
+      .x(d => d.name, xScale)
+      .y(d => d.value, yScale)
+      .attr('fill', (d, i, dataset) => dataset.metadata(), colorScale)
 
     const table = new Plottable.Components.Table([
       [yAxis, plot],
