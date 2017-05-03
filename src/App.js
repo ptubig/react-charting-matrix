@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
 import StackedAreaChart from './recharts/StackedAreaChart';
+import GroupedBarChart from './recharts/GroupedBarChart';
 import VictoryStackedAreaChart from './victory/StackedAreaChart';
-
+import VictoryGroupedBarChart from './victory/GroupedBarChart';
 import PlottableStackedAreaChart from './plottable/StackedAreaChart';
 
 // Somehow the order of these two matter (or matter for the nvd3 component). It needs to be ordered this way for nvd3
@@ -19,10 +20,12 @@ class App extends Component {
         <div>
           <h1>Recharts</h1>
           <StackedAreaChart />
+          <GroupedBarChart />
         </div>
         <div>
           <h1>Victory</h1>
           <VictoryStackedAreaChart />
+          <VictoryGroupedBarChart />
         </div>
         <div>
           <h1>Plottable</h1>
