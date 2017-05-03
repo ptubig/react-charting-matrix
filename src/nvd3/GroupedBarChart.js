@@ -34,7 +34,7 @@ const json = [
 class GroupedBarChart extends React.Component {
   chart = null;
 
-  componentShouldUpdate() {
+  shouldComponentUpdate() {
     return false;
   }
 

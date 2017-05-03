@@ -45,7 +45,7 @@ class StackedAreaChart extends React.Component {
       width: 600,
       height: 400,
       renderer: 'area',
-      stroke: true,
+      stroke: false,
       series: json,
     });
 
@@ -65,7 +65,7 @@ class StackedAreaChart extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container stackedAreaChart">
         <div className="yAxis" ref={ ref => this.yAxis = ref }></div>
         <div className="chart" ref={ ref => this.charts = ref }></div>
         <div className="xAxis" ref={ ref => this.xAxis = ref }></div>

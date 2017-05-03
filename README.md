@@ -71,6 +71,20 @@ really any docs other than follow the source code. The prerequisites is to know 
 I do prefer this so far to NVD3 because NVD3 has alot of configurations to "turn off" features, while Rickshaw doesn't
 build any features into its charts. You will need to opt-in into it.
 
+The dataset that Rickshaw expects is structured as:
+
+```
+const json = [
+  {
+    color: '#FF0000',
+    data: [{ x: <number>, y: <number> }, ...]
+  },
+  ...
+];
+```
+
+If you have x represented as a string, you will need to figure out a way to represent it as a number (ie. create a map).
+
 This requires to add a static .css file.
 
 # Notes
