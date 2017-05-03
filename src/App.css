@@ -1,3 +1,16 @@
 .App {
     display: flex;
 }
+
+.chart {
+    padding: 0 25px;
+}
+
+
+h1 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    display: block;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
