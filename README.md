@@ -5,9 +5,11 @@
 | | Recharts | Victory | Plottable | NVD3 | Rickshaw 
 | --- | --- | --- | --- | --- | --- 
 | URL | http://recharts.org/#/en-US/ | http://formidable.com/open-source/victory/ | http://plottablejs.org/ | http://nvd3.org/ | http://code.shutterstock.com/rickshaw/
+| Github (Stars) | 5453 | 4198 | 2081 | 5942  | 6015 
 | React-Style Components | **X** | **X** |  |  |  
 | Stacked Area Chart | **X** | **X** | **X**  | **X**  | **X** 
 | Grouped Bar Chart | **X** | **X** | **X** | **X** | **X**
+| Horizontal Bar Chart | **X** | **X** | **X** | **X**
 | Customization
 | Responsiveness | **X** | **X** 
 | Events
@@ -16,7 +18,7 @@
 
 ### Recharts
 
-I really like Recharts. It uses simple React components to represent various pieces of a chart (Axes, Grid, Line, Tooltip, etc.) 
+Recharts uses simple React components to represent various pieces of a chart (Axes, Grid, Line, Tooltip, etc.) 
 and stack them in an on how it will be rendered.
 
 I love how customization is through passing a function or a React element into a specific prop for a given component.
@@ -31,10 +33,13 @@ Animation are represented as props for a given React Chart component (ie. `anima
 
 ### Victory
 
-I also like Victory. It also uses simple React components, but it is built more modularized which means that set up may
+Victory also uses simple React components, but it is built more modularized which means that set up may
 take longer, but it'll be easier to extend.
 
 ### Plottable
+
+Plottable tries to abstract out the complexity of d3 by creating a lot of independent class-based components (ie. Axes, Plots) 
+and put it together to form a Group and can define the final layout through a Table.
 
 Plottable uses an array of arrays to represent its layout:
 
@@ -85,6 +90,9 @@ const json = [
 ```
 
 If you have x represented as a string, you will need to figure out a way to represent it as a number (ie. create a map).
+
+Rickshaw doesn't include a horizontal stacked bar chart because "Rickshaw is aimed at graphing time series data (with 
+time on the x-axis), so you are correct that there's no support for horizontal stacked bars." It was noted [here](https://github.com/shutterstock/rickshaw/issues/350).
 
 This requires to add a static .css file.
 
