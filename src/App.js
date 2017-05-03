@@ -45,6 +45,11 @@ class App extends Component {
               width={ WIDTH }
               height={ HEIGHT }
             />
+            <GroupedBarChart
+              isVertical={ false }
+              width={ WIDTH }
+              height={ HEIGHT }
+            />
           </div>
         </div>
         <div className="chart">

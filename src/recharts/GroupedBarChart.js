@@ -12,11 +12,24 @@ const data = [
   { name: 'Cooking Channel', brand1: 30, brand2: 77, brand3: 29 },
 ];
 
-const GroupedBarChart = ({ width, height }) => {
+const GroupedBarChart = ({ width, height, isVertical =  true }) => {
   return (
-    <BarChart width={ width } height={ height } data={ data }>
-      <XAxis dataKey="name" />
-      <YAxis />
+    <BarChart
+      width={ width }
+      height={ height }
+      data={ data }
+      layout={ isVertical ? 'horizontal' : 'vertical' }
+    >
+
+      {
+        isVertical ? [
+          <XAxis type="category" dataKey="name" />,
+          <YAxis />
+        ] : [
+          <XAxis />,
+          <YAxis type="category" dataKey="name" />
+        ]
+      }
       <Bar dataKey="brand1" fill="#FF0000" />
       <Bar dataKey="brand2" fill="#00FF00" />
       <Bar dataKey="brand3" fill="#0000FF" />
