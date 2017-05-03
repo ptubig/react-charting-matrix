@@ -27,6 +27,7 @@ class StackedAreaChart extends Component {
       .x(function(d) { return d.name; }, xScale)
       .y(function(d) { return d.value; }, yScale)
       .attr('fill', function(d, i, dataset) { return dataset.metadata(); }, colorScale)
+      .animated(true);
 
     const table = new Plottable.Components.Table([
       [yAxis, plot],

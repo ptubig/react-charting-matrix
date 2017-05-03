@@ -83,6 +83,11 @@ class App extends Component {
               width={ WIDTH }
               height={ HEIGHT }
             />
+            <PlottableGroupedBarChart
+              width={ WIDTH }
+              height={ HEIGHT }
+              isVertical={ false }
+            />
           </div>
         </div>
         <div className="chart">
