@@ -12,40 +12,56 @@ const data = [
   { name: 'Cooking Channel', brand1: 30, brand2: 77, brand3: 29 },
 ];
 
-const brand1Data = data.map(({ name, brand1 }) => ({ name, brand1 }));
-const brand2Data = data.map(({ name, brand2 }) => ({ name, brand2 }));
-const brand3Data = data.map(({ name, brand3 }) => ({ name, brand3 }));
+const brand1Data = data.map(({ name, brand1 }) => ({ name, value: brand1 }));
+const brand2Data = data.map(({ name, brand2 }) => ({ name, value: brand2 }));
+const brand3Data = data.map(({ name, brand3 }) => ({ name, value: brand3 }));
 
-const GroupedBarChart = ({ width, height }) => {
+const GroupedBarChart = ({ width, height, isVertical=true }) => {
   return (
-    <div style={ { width: `${width}px`, height: `${height}px` } }>
+    <div>
       <VictoryChart
+        width={ width }
+        height={ height }
         animate={ { duration: 0, easing: "cubic" } }
       >
-        <VictoryAxis
-          tickValues={ data.map(({ name }) => name) }
-          tickFormat={ data.map(({ name }) => name) }
-        />
-        <VictoryAxis
-          dependentAxis
-          tickFormat={ x => x }
-        />
-        <VictoryGroup offset={ 10 }>
+        {
+          isVertical ? [
+            <VictoryAxis
+              tickValues={ data.map(({ name }) => name) }
+              tickFormat={ data.map(({ name }) => name) }
+            />,
+            <VictoryAxis
+              dependentAxis
+            />
+          ] : [
+            <VictoryAxis
+              tickValues={ [20, 40, 60, 80] }
+              tickFormat={ [20, 40, 60, 80] }
+            />,
+            <VictoryAxis
+              dependentAxis
+              tickValues={ data.map(({ name }) => name).reverse() }
+              tickFormat={ data.map(({ name }) => name).reverse() }
+            />,
+          ]
+        }
+
+        <VictoryGroup offset={ 10 } horizontal={ !isVertical }>
           <VictoryBar
             x="name"
-            y="brand1"
+            y="value"
             data={ brand1Data }
             color="#FF0000"
           />
           <VictoryBar
             x="name"
-            y="brand2"
+            y="value"
             data={ brand2Data }
             color="#00FF00"
           />
           <VictoryBar
             x="name"
-            y="brand3"
+            y="value"
             data={ brand3Data }
             color="#0000FF"
           />

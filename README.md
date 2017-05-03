@@ -9,6 +9,7 @@
 | Stacked Area Chart | **X** | **X** | **X**  | **X**  | **X** 
 | Grouped Bar Chart | **X** | **X** | **X** | **X** | **X**
 | Customization
+| Responsiveness | **X** | **X** 
 | Events
 | Animation | **X** | **X** |  | **X** | 
 | Documentation

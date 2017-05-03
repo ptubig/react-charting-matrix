@@ -15,9 +15,9 @@ const brand1Data = [
 */
 
 const StackedAreaChart = ({ data, width, height }) => {
-  const brand1Data = data.map(({ name, brand1 }) => ({ name, brand1 }));
-  const brand2Data = data.map(({ name, brand2 }) => ({ name, brand2 }));
-  const brand3Data = data.map(({ name, brand3 }) => ({ name, brand3 }));
+  const brand1Data = data.map(({ name, brand1 }) => ({ name, value: brand1 }));
+  const brand2Data = data.map(({ name, brand2 }) => ({ name, value: brand2 }));
+  const brand3Data = data.map(({ name, brand3 }) => ({ name, value: brand3 }));
 
   return (
     <div style={ { width: `${width}px`, height: `${height}px` } }>
@@ -35,17 +35,17 @@ const StackedAreaChart = ({ data, width, height }) => {
         <VictoryStack>
           <VictoryArea
             x="name"
-            y="brand1"
+            y="value"
             data={ brand1Data }
           />
           <VictoryArea
             x="name"
-            y="brand2"
+            y="value"
             data={ brand2Data }
           />
           <VictoryArea
             x="name"
-            y="brand3"
+            y="value"
             data={ brand3Data }
           />
         </VictoryStack>

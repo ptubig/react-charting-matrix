@@ -64,6 +64,11 @@ class App extends Component {
               width={ WIDTH }
               height={ HEIGHT }
             />
+            <VictoryGroupedBarChart
+              width={ WIDTH }
+              height={ HEIGHT }
+              isVertical={ false }
+            />
           </div>
         </div>
         <div className="chart">
