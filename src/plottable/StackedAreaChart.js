@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import d3 from 'd3'
 import Plottable from 'plottable';
 
 const data = [
@@ -36,8 +35,6 @@ class StackedAreaChart extends Component {
       .x(function(d) { return d.name; }, xScale)
       .y(function(d) { return d.value; }, yScale)
       .attr('fill', function(d, i, dataset) { return dataset.metadata(); }, colorScale)
-
-    this.canvas = d3.select(this.canvas);
 
     const table = new Plottable.Components.Table([
       [yAxis, plot],
