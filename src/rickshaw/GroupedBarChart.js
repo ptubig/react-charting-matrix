@@ -47,7 +47,6 @@ class GroupedBarChart extends React.Component {
       element: this.charts,
       width,
       height,
-      height,
       renderer: 'bar',
       stroke: false,
       stack: false,

@@ -54,6 +54,8 @@ class StackedAreaChart extends React.Component {
               return '#414141';
             case 'Brand 1':
               return '#1c1c1c';
+            default:
+              return '#ff0000';
           }
         });
 

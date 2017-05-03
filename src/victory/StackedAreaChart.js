@@ -1,5 +1,5 @@
 import React from 'react';
-import { VictoryArea, VictoryChart, VictoryStack, VictoryAxis, VictoryTheme } from 'victory';
+import { VictoryArea, VictoryChart, VictoryStack, VictoryAxis } from 'victory';
 
 /*
 // Expected structure

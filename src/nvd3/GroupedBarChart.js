@@ -1,8 +1,6 @@
 import React from 'react';
 import d3 from 'd3';
 import nv from 'nvd3';
-import moment from 'moment';
-
 import './styles.css';
 
 const data = [
@@ -59,6 +57,8 @@ class GroupedBarChart extends React.Component {
               return '#00FF00';
             case 'Brand 1':
               return '#FF0000';
+            default:
+              return '#ff0000';
           }
         });
 

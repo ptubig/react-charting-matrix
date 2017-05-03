@@ -1,11 +1,5 @@
 import React from 'react';
-import { AreaChart, Area, CartesianGrid, Tooltip, XAxis, YAxis } from 'recharts';
-
-const metadata = {
-  brand1: '#8884d8',
-  brand2: '#82ca9d',
-  brand3: '#ffc658'
-};
+import { AreaChart, Area, Tooltip, XAxis, YAxis } from 'recharts';
 
 const StackedAreaChart = ({ data, width, height }) => {
   return (
