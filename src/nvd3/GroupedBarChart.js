@@ -41,9 +41,12 @@ class GroupedBarChart extends React.Component {
   }
 
   draw() {
+    const { isVertical = true } = this.props;
+
     nv.addGraph(() => {
-      const chart = nv.models.multiBarChart()
-        .margin({ right: 100 })
+      const chart = isVertical ? nv.models.multiBarChart() : nv.models.multiBarHorizontalChart();
+
+      chart.margin({ right: 100 })
         .x(d => d[0])
         .y(d => d[1])
         .showControls(false)
@@ -61,9 +64,6 @@ class GroupedBarChart extends React.Component {
               return '#ff0000';
           }
         });
-
-      // chart.xAxis
-      //   .tickFormat(d => moment(d).format('MM/DD'));
 
       d3.select(this.chart)
         .datum(json)
