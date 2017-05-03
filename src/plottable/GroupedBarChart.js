@@ -50,8 +50,10 @@ class GroupedBarChart extends Component {
   }
 
   render() {
+    const { width, height } = this.props;
+
     return (
-      <div style={ { width: 600, height: 400 } }>
+      <div style={ { width, height } }>
         <div ref={ ref => this.canvas = ref } />
       </div>
     );

@@ -16,9 +16,9 @@ const brand1Data = data.map(({ name, brand1 }) => ({ name, brand1 }));
 const brand2Data = data.map(({ name, brand2 }) => ({ name, brand2 }));
 const brand3Data = data.map(({ name, brand3 }) => ({ name, brand3 }));
 
-const GroupedBarChart = () => {
+const GroupedBarChart = ({ width, height }) => {
   return (
-    <div style={ { width: '600px', height: '400px' } }>
+    <div style={ { width: `${width}px`, height: `${height}px` } }>
       <VictoryChart
         animate={ { duration: 0, easing: "cubic" } }
       >

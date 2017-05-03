@@ -40,10 +40,12 @@ class StackedAreaChart extends React.Component {
   }
 
   draw() {
+    const { width, height } = this.props;
+
     const graph = new Rickshaw.Graph({
       element: this.charts,
-      width: 600,
-      height: 400,
+      width,
+      height,
       renderer: 'area',
       stroke: false,
       series: json,

@@ -74,8 +74,10 @@ class GroupedBarChart extends React.Component {
   }
 
   render() {
+    const { width, height } = this.props;
+
     return (
-      <div style={ { width: 600, height: 400 } }>
+      <div style={ { width, height } }>
         <svg ref={ ref => this.chart = ref } />
       </div>
     );
