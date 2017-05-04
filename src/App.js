@@ -16,7 +16,7 @@ import Nvd3GroupedBarChart from './nvd3/GroupedBarChart';
 
 import './App.css';
 
-const stackedAreaChartData = [
+const stackedAreaChartData1 = [
   { name: '01/01', brand1: 40, brand2: 24, brand3: 24 },
   { name: '01/02', brand1: 30, brand2: 13, brand3: 22 },
   { name: '01/03', brand1: 20, brand2: 98, brand3: 22 },
@@ -26,13 +26,42 @@ const stackedAreaChartData = [
   { name: '01/07', brand1: 34, brand2: 43, brand3: 21 },
 ];
 
+const stackedAreaChartData2 = [
+  { name: '01/01', brand1: 5, brand2: 30, brand3: 52 },
+  { name: '01/02', brand1: 45, brand2: 34, brand3: 1 },
+  { name: '01/03', brand1: 95, brand2: 66, brand3: 69 },
+  { name: '01/04', brand1: 63, brand2: 31, brand3: 71 },
+  { name: '01/05', brand1: 68, brand2: 81, brand3: 66 },
+  { name: '01/06', brand1: 83, brand2: 64, brand3: 92 },
+  { name: '01/07', brand1: 24, brand2: 47, brand3: 100 },
+];
+
 const WIDTH = 600;
 const HEIGHT = 400;
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      stackedAreaChartData: stackedAreaChartData1
+    };
+  }
+
+  toggle() {
+    this.setState({
+      stackedAreaChartData: this.state.stackedAreaChartData === stackedAreaChartData1 ?
+        stackedAreaChartData2 :
+        stackedAreaChartData1
+    });
+  }
+
   render() {
+    const { stackedAreaChartData } = this.state;
+
     return (
       <div className="App">
+        <button className="toggleButton" onClick={ () => this.toggle() }>Toggle</button>
         <div className="chart">
           <h1>Recharts</h1>
           <div className="section">

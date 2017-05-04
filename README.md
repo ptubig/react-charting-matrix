@@ -31,6 +31,7 @@ Animation are represented as props for a given React Chart component (ie. `anima
 `animationEasing`, etc.)
 
 
+
 ### Victory
 
 Victory also uses simple React components, but it is built more modularized which means that set up may
