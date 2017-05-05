@@ -160,10 +160,12 @@ class App extends Component {
               height={ HEIGHT }
             />
             <Nvd3GroupedBarChart
+              data={ groupedBarChartData }
               width={ WIDTH }
               height={ HEIGHT }
             />
             <Nvd3GroupedBarChart
+              data={ groupedBarChartData }
               width={ WIDTH }
               height={ HEIGHT }
               isVertical={ false }

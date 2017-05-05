@@ -3,32 +3,6 @@ import d3 from 'd3';
 import nv from 'nvd3';
 import './styles.css';
 
-const data = [
-  { name: 'BBC America', brand1: 66, brand2: 55, brand3: 16 },
-  { name: 'A&E Network', brand1: 69, brand2: 35, brand3: 25 },
-  { name: 'History Channel', brand1: 95, brand2: 12, brand3: 28 },
-  { name: 'Freeform', brand1: 21, brand2: 19, brand3: 2 },
-  { name: 'E! Entertainment', brand1: 28, brand2: 85, brand3: 16 },
-  { name: 'BET', brand1: 54, brand2: 5, brand3: 90 },
-  { name: 'Lifetime Network', brand1: 58, brand2: 31, brand3: 15 },
-  { name: 'Cooking Channel', brand1: 30, brand2: 77, brand3: 29 },
-];
-
-const json = [
-  {
-    key: 'Brand 1',
-    values: data.map(({ name, brand1 }) => [name, brand1])
-  },
-  {
-    key: 'Brand 2',
-    values: data.map(({ name, brand2 }) => [name, brand2])
-  },
-  {
-    key: 'Brand 3',
-    values: data.map(({ name, brand3 }) => [name, brand3])
-  },
-];
-
 class GroupedBarChart extends React.Component {
   chart = null;
 
@@ -36,12 +10,33 @@ class GroupedBarChart extends React.Component {
     return false;
   }
 
-  componentDidMount() {
-    this.draw();
+  componentWillReceiveProps({ data }) {
+    this.draw(data);
   }
 
-  draw() {
+  componentDidMount() {
+    const { data } = this.props;
+
+    this.draw(data);
+  }
+
+  draw(data) {
     const { isVertical = true } = this.props;
+
+    const json = [
+      {
+        key: 'Brand 1',
+        values: data.map(({ name, brand1 }) => [name, brand1])
+      },
+      {
+        key: 'Brand 2',
+        values: data.map(({ name, brand2 }) => [name, brand2])
+      },
+      {
+        key: 'Brand 3',
+        values: data.map(({ name, brand3 }) => [name, brand3])
+      },
+    ];
 
     nv.addGraph(() => {
       const chart = isVertical ? nv.models.multiBarChart() : nv.models.multiBarHorizontalChart();
