@@ -2,9 +2,8 @@
  
 ## Matrix
  
-| | Recharts | Victory | Plottable | NVD3 | Rickshaw 
+| | [Recharts](http://recharts.org/#/en-US/) | [Victory](http://formidable.com/open-source/victory/) | [Plottable](http://plottablejs.org/) | [NVD3](http://nvd3.org/) | [Rickshaw](http://code.shutterstock.com/rickshaw/) 
 | --- | --- | --- | --- | --- | --- 
-| URL | http://recharts.org/#/en-US/ | http://formidable.com/open-source/victory/ | http://plottablejs.org/ | http://nvd3.org/ | http://code.shutterstock.com/rickshaw/
 | Github (Stars) | 5453 | 4198 | 2081 | 5942  | 6015 
 | React-Style Components | **X** | **X** |  |  |  
 | Stacked Area Chart | **X** | **X** | **X**  | **X**  | **X** 
@@ -14,7 +13,7 @@
 | Responsiveness | **X** | **X** 
 | Events
 | Animation | **X** | **X** |  | **X**
-| Transition |  | **X** 
+| Transition |  | **X** |  | **X**
 | Package Size | 
 | Documentation
 
