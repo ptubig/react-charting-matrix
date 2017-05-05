@@ -123,6 +123,7 @@ class App extends Component {
           <h1>nvd3</h1>
           <div className="section">
             <Nvd3StackedAreaChart
+              data={ stackedAreaChartData }
               width={ WIDTH }
               height={ HEIGHT }
             />

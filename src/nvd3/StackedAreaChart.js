@@ -5,39 +5,53 @@ import moment from 'moment';
 
 import './styles.css';
 
-const data = [
-  { name: moment('2017-01-01', 'YYYY-MM-DD').valueOf(), brand1: 40, brand2: 24, brand3: 24 },
-  { name: moment('2017-01-02', 'YYYY-MM-DD').valueOf(), brand1: 30, brand2: 13, brand3: 22 },
-  { name: moment('2017-01-03', 'YYYY-MM-DD').valueOf(), brand1: 20, brand2: 98, brand3: 22 },
-  { name: moment('2017-01-04', 'YYYY-MM-DD').valueOf(), brand1: 27, brand2: 39, brand3: 20 },
-  { name: moment('2017-01-05', 'YYYY-MM-DD').valueOf(), brand1: 18, brand2: 48, brand3: 21 },
-  { name: moment('2017-01-06', 'YYYY-MM-DD').valueOf(), brand1: 23, brand2: 38, brand3: 25 },
-  { name: moment('2017-01-07', 'YYYY-MM-DD').valueOf(), brand1: 23, brand2: 43, brand3: 21 },
-];
-
-const json = [
-  {
-    key: 'Brand 1',
-    values: data.map(({ name, brand1 }) => [name, brand1])
-  },
-  {
-    key: 'Brand 2',
-    values: data.map(({ name, brand2 }) => [name, brand2])
-  },
-  {
-    key: 'Brand 3',
-    values: data.map(({ name, brand3 }) => [name, brand3])
-  },
-];
+// const data = [
+//   { name: moment('2017-01-01', 'YYYY-MM-DD').valueOf(), brand1: 40, brand2: 24, brand3: 24 },
+//   { name: moment('2017-01-02', 'YYYY-MM-DD').valueOf(), brand1: 30, brand2: 13, brand3: 22 },
+//   { name: moment('2017-01-03', 'YYYY-MM-DD').valueOf(), brand1: 20, brand2: 98, brand3: 22 },
+//   { name: moment('2017-01-04', 'YYYY-MM-DD').valueOf(), brand1: 27, brand2: 39, brand3: 20 },
+//   { name: moment('2017-01-05', 'YYYY-MM-DD').valueOf(), brand1: 18, brand2: 48, brand3: 21 },
+//   { name: moment('2017-01-06', 'YYYY-MM-DD').valueOf(), brand1: 23, brand2: 38, brand3: 25 },
+//   { name: moment('2017-01-07', 'YYYY-MM-DD').valueOf(), brand1: 23, brand2: 43, brand3: 21 },
+// ];
 
 class StackedAreaChart extends React.Component {
   chart = null;
 
-  componentDidMount() {
-    this.draw();
+  componentWillReceiveProps({ data }) {
+    this.draw(this._getData(data));
   }
 
-  draw() {
+  shouldComponentUpdate() {
+    return false;
+  }
+
+  componentDidMount() {
+    const { data } = this.props;
+
+    this.draw(this._getData(data));
+  }
+
+  _getData(data) {
+    const d = data.map(({ name, ...rest }) => ({ name: moment(name, 'MM-DD').valueOf(), ...rest }) );
+
+    return [
+      {
+        key: 'Brand 1',
+        values: d.map(({ name, brand1 }) => [name, brand1])
+      },
+      {
+        key: 'Brand 2',
+        values: d.map(({ name, brand2 }) => [name, brand2])
+      },
+      {
+        key: 'Brand 3',
+        values: d.map(({ name, brand3 }) => [name, brand3])
+      },
+    ];
+  }
+
+  draw(data) {
     nv.addGraph(() => {
       const chart = nv.models.stackedAreaChart()
         .margin({ right: 100 })
@@ -63,7 +77,7 @@ class StackedAreaChart extends React.Component {
         .tickFormat(d => moment(d).format('MM/DD'));
 
       d3.select(this.chart)
-        .datum(json)
+        .datum(data)
         .call(chart);
 
       return chart;
