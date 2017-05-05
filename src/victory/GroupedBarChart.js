@@ -1,7 +1,7 @@
 import React from 'react';
-import { VictoryChart, VictoryAxis, VictoryGroup, VictoryBar } from 'victory'
+import { VictoryChart, VictoryAxis, VictoryGroup, VictoryBar, VictoryTooltip } from 'victory'
 
-const GroupedBarChart = ({ width, height, data, isVertical=true }) => {
+const GroupedBarChart = ({ width, height, data, isVertical = true }) => {
   const brand1Data = data.map(({ name, brand1 }) => ({ name, value: brand1 }));
   const brand2Data = data.map(({ name, brand2 }) => ({ name, value: brand2 }));
   const brand3Data = data.map(({ name, brand3 }) => ({ name, value: brand3 }));

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts';
 
 const GroupedBarChart = ({ width, height, data, isVertical =  true }) => {
   return (
@@ -19,6 +19,7 @@ const GroupedBarChart = ({ width, height, data, isVertical =  true }) => {
           <YAxis type="category" dataKey="name" />
         ]
       }
+      <Tooltip />
       <Bar dataKey="brand1" fill="#FF0000" />
       <Bar dataKey="brand2" fill="#00FF00" />
       <Bar dataKey="brand3" fill="#0000FF" />

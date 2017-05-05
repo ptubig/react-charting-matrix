@@ -14,8 +14,8 @@
 | Events
 | Animation | **X** | **X** |  | **X**
 | Transition |  | **X** |  | **X**
-| Package Size | 
-| Documentation
+| Package Size (based off of cost-of-modules) | 8.32M | 9.50M | 12.25M | 5.66M | 1.55M 
+| Documentation | **X** | **X** | **X** |  |  
 
 ### Recharts
 
