@@ -2,45 +2,49 @@
  
 ## Matrix
  
-| | [Recharts](http://recharts.org/#/en-US/) | [Victory](http://formidable.com/open-source/victory/) | [Plottable](http://plottablejs.org/) | [NVD3](http://nvd3.org/) | [Rickshaw](http://code.shutterstock.com/rickshaw/) 
+| (as of 05/05/2017) | [Recharts](http://recharts.org/#/en-US/) | [Victory](http://formidable.com/open-source/victory/) | [Plottable](http://plottablejs.org/) | [NVD3](http://nvd3.org/) | [Rickshaw](http://code.shutterstock.com/rickshaw/) 
 | --- | --- | --- | --- | --- | --- 
-| Github (Stars) | 5453 | 4198 | 2081 | 5942  | 6015 
+| Github Stars | 5453 | 4198 | 2081 | 5942  | 6015 
 | React-Style Components | **X** | **X** |  |  |  
 | Stacked Area Chart | **X** | **X** | **X**  | **X**  | **X** 
 | Grouped Bar Chart | **X** | **X** | **X** | **X** | **X**
 | Horizontal Bar Chart | **X** | **X** | **X** | **X**
 | Customization
-| Responsiveness | **X** | **X** 
 | Events
 | Animation | **X** | **X** |  | **X**
 | Transition |  | **X** |  | **X**
-| Package Size (based off of cost-of-modules) | 8.32M | 9.50M | 12.25M | 5.66M | 1.55M 
-| Documentation | **X** | **X** | **X** |  |  
+| Package Size | 8.32M | 9.50M | 12.25M | 5.66M | 1.55M 
+| Documentation | **X** | **X** | **X** |
+
+## Criteria
+
+* **React-Style Components** - Determine if a library is composed of React components. ie. `<Line Chart />`
+* **Specialized Chart** (ie. Stacked Area Chart) - Specific charts that I need
+* **Customization** - How easily is it to customize a chart. How easily is it to change colors, axes, labels
+* **Events** - How easily to capture and handle events
+* **Animation** - Does the library support animation
+* **Transition** - Does the library add transitions when data changes (ie. `onEnter` and `onExit` functionality)
+* **Package Size** - Based off of the [cost-of-modules](https://github.com/siddharthkp/cost-of-modules) NPM package
+* **Documentation** - Provides a clear, comprehensive documentation
+
+## Libraries
 
 ### Recharts
 
-Recharts uses simple React components to represent various pieces of a chart (Axes, Grid, Line, Tooltip, etc.) 
-and stack them in an on how it will be rendered.
+A nicely featured React-style charting library that handles various charting constraints such as label collisions and
+tooltips.
 
-I love how customization is through passing a function or a React element into a specific prop for a given component.
-
-```
-<Bar type="monotone" dataKey="u" fill="#8884d8" shape={ <TriangleBar /> } />
-```
-
-Animation are represented as props for a given React Chart component (ie. `animationBegin`, `animationDuration`, 
-`animationEasing`, etc.)
-
-
+It doesn't do transitions. The issue can be found [here](https://github.com/recharts/recharts/issues/287). When a new
+dataset is put in there, it re-draws.
 
 ### Victory
 
-Victory also uses simple React components, but it is built more modularized which means that set up may
-take longer, but it'll be easier to extend.
+Victory is a React-style charting library that not as fully featured as Recharts. However it does provide transitions
+very nicely.
 
 ### Plottable
 
-Plottable tries to abstract out the complexity of d3 by creating a lot of independent class-based components (ie. Axes, Plots) 
+Plottable tries to abstract out the complexity of d3 by creating a lot of class-based components (ie. Axes, Plots) 
 and put it together to form a Group and can define the final layout through a Table.
 
 Plottable uses an array of arrays to represent its layout:
@@ -75,9 +79,6 @@ This requires to add a static .css file.
 Very similar to NVD3, which heavily uses D3, but more stripped down. It promotes that "Rickshaw makes every effort to
 provide hep for common problems without obscuring anything underneath it", and it seems to be the case. There aren't
 really any docs other than follow the source code. The prerequisites is to know D3 intimately.
-
-I do prefer this so far to NVD3 because NVD3 has alot of configurations to "turn off" features, while Rickshaw doesn't
-build any features into its charts. You will need to opt-in into it.
 
 The dataset that Rickshaw expects is structured as:
 
