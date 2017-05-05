@@ -15,6 +15,30 @@ const data = [
 class GroupedBarChart extends Component {
   canvas = null;
 
+  brand1Data = new Plottable.Dataset([]).metadata(0);
+  brand2Data = new Plottable.Dataset([]).metadata(1);
+  brand3Data = new Plottable.Dataset([]).metadata(2);
+
+  componentWillReceiveProps({ data }) {
+    this._updateData(data);
+  }
+
+  shouldComponentUpdate() {
+    return false;
+  }
+
+  componentDidMount() {
+    const { data } = this.props;
+    this._updateData(data);
+    this.draw(data);
+  }
+
+  _updateData(data) {
+    this.brand1Data.data(data.map(({ name, brand1 }) => ({ name, value: brand1 })));
+    this.brand2Data.data(data.map(({ name, brand2 }) => ({ name, value: brand2 })));
+    this.brand3Data.data(data.map(({ name, brand3 }) => ({ name, value: brand3 })));
+  }
+
   draw() {
     const { isVertical = true } = this.props;
 
@@ -27,17 +51,12 @@ class GroupedBarChart extends Component {
     const yAxis = new Plottable.Axes.Numeric(yScale, isVertical ? 'left' : 'bottom');
     const xAxis = new Plottable.Axes.Category(xScale, isVertical ? 'bottom' : 'left');
 
-    const brand1Data = data.map(({ name, brand1 }) => ({ name, value: brand1 }));
-    const brand2Data = data.map(({ name, brand2 }) => ({ name, value: brand2 }));
-    const brand3Data = data.map(({ name, brand3 }) => ({ name, value: brand3 }));
-
     const plot = new Plottable.Plots.ClusteredBar(isVertical ? 'vertical' : 'horizontal')
-      .addDataset(new Plottable.Dataset(brand1Data).metadata(0))
-      .addDataset(new Plottable.Dataset(brand2Data).metadata(1))
-      .addDataset(new Plottable.Dataset(brand3Data).metadata(2))
+      .addDataset(this.brand1Data)
+      .addDataset(this.brand2Data)
+      .addDataset(this.brand3Data)
       .attr('fill', (d, i, dataset) => dataset.metadata(), colorScale)
       .animated(true);
-
 
       if (isVertical) {
         plot
@@ -56,10 +75,6 @@ class GroupedBarChart extends Component {
     ]);
 
     table.renderTo(this.canvas);
-  }
-
-  componentDidMount() {
-    this.draw();
   }
 
   render() {

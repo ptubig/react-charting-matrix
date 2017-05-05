@@ -139,10 +139,12 @@ class App extends Component {
               height={ HEIGHT }
             />
             <PlottableGroupedBarChart
+              data={ groupedBarChartData }
               width={ WIDTH }
               height={ HEIGHT }
             />
             <PlottableGroupedBarChart
+              data={ groupedBarChartData }
               width={ WIDTH }
               height={ HEIGHT }
               isVertical={ false }
