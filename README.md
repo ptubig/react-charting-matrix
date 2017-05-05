@@ -13,7 +13,9 @@
 | Customization
 | Responsiveness | **X** | **X** 
 | Events
-| Animation | **X** | **X** |  | **X** | 
+| Animation | **X** | **X** |  | **X**
+| Transition |  | **X** 
+| Package Size | 
 | Documentation
 
 ### Recharts

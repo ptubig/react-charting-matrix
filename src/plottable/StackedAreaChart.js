@@ -4,9 +4,25 @@ import Plottable from 'plottable';
 class StackedAreaChart extends Component {
   canvas = null;
 
-  draw() {
-    const { data } = this.props;
+  brand1Data = new Plottable.Dataset([]).metadata(2);
+  brand2Data = new Plottable.Dataset([]).metadata(1);
+  brand3Data = new Plottable.Dataset([]).metadata(0);
 
+  _updateDataSet(data) {
+    this.brand1Data.data(data.map(({ name, brand1 }) => ({ name, value: brand1 })));
+    this.brand2Data.data(data.map(({ name, brand2 }) => ({ name, value: brand2 })));
+    this.brand3Data.data(data.map(({ name, brand3 }) => ({ name, value: brand3 })));
+  }
+
+  componentWillReceiveProps({ data }) {
+    this._updateDataSet(data);
+  }
+
+  shouldComponentUpdate() {
+    return false;
+  }
+
+  draw(data) {
     const xScale = new Plottable.Scales.Category().domain(data.map(({ name }) => name));
     const yScale = new Plottable.Scales.Linear();
 
@@ -16,29 +32,29 @@ class StackedAreaChart extends Component {
     const yAxis = new Plottable.Axes.Numeric(yScale, 'left');
     const xAxis = new Plottable.Axes.Category(xScale, 'bottom');
 
-    const brand1Data = data.map(({ name, brand1 }) => ({ name, value: brand1 }))
-    const brand2Data = data.map(({ name, brand2 }) => ({ name, value: brand2 }))
-    const brand3Data = data.map(({ name, brand3 }) => ({ name, value: brand3 }))
 
     const plot = new Plottable.Plots.StackedArea()
-      .addDataset(new Plottable.Dataset(brand1Data).metadata(2))
-      .addDataset(new Plottable.Dataset(brand2Data).metadata(1))
-      .addDataset(new Plottable.Dataset(brand3Data).metadata(0))
+      .addDataset(this.brand1Data)
+      .addDataset(this.brand2Data)
+      .addDataset(this.brand3Data)
       .x(function(d) { return d.name; }, xScale)
       .y(function(d) { return d.value; }, yScale)
       .attr('fill', function(d, i, dataset) { return dataset.metadata(); }, colorScale)
       .animated(true);
 
-    const table = new Plottable.Components.Table([
+    const chart = new Plottable.Components.Table([
       [yAxis, plot],
       [null, xAxis]
     ]);
 
-    table.renderTo(this.canvas);
+    chart.renderTo(this.canvas);
   }
 
   componentDidMount() {
-    this.draw();
+    const { data } = this.props;
+    this._updateDataSet(data);
+
+    this.draw(data);
   }
 
   render() {

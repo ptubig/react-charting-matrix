@@ -1,5 +1,5 @@
 import React from 'react';
-import { VictoryArea, VictoryChart, VictoryStack, VictoryAxis } from 'victory';
+import { VictoryTransition, VictoryArea, VictoryChart, VictoryStack, VictoryAxis } from 'victory';
 
 /*
 // Expected structure
@@ -22,7 +22,12 @@ const StackedAreaChart = ({ data, width, height }) => {
   return (
     <div style={ { width: `${width}px`, height: `${height}px` } }>
       <VictoryChart
-        animate={ { duration: 0, easing: "cubic" } }
+        animate={ {
+          duration: 2000,
+          easing: 'cubic',
+          onLoad: { duration: 1000 },
+          onEnter: { duration: 500, before: () => ({ y: 0 }) }
+        } }
       >
         <VictoryAxis
           tickValues={ data.map(({ name }) => name) }
