@@ -5,16 +5,6 @@ import moment from 'moment';
 
 import './styles.css';
 
-// const data = [
-//   { name: moment('2017-01-01', 'YYYY-MM-DD').valueOf(), brand1: 40, brand2: 24, brand3: 24 },
-//   { name: moment('2017-01-02', 'YYYY-MM-DD').valueOf(), brand1: 30, brand2: 13, brand3: 22 },
-//   { name: moment('2017-01-03', 'YYYY-MM-DD').valueOf(), brand1: 20, brand2: 98, brand3: 22 },
-//   { name: moment('2017-01-04', 'YYYY-MM-DD').valueOf(), brand1: 27, brand2: 39, brand3: 20 },
-//   { name: moment('2017-01-05', 'YYYY-MM-DD').valueOf(), brand1: 18, brand2: 48, brand3: 21 },
-//   { name: moment('2017-01-06', 'YYYY-MM-DD').valueOf(), brand1: 23, brand2: 38, brand3: 25 },
-//   { name: moment('2017-01-07', 'YYYY-MM-DD').valueOf(), brand1: 23, brand2: 43, brand3: 21 },
-// ];
-
 class StackedAreaChart extends React.Component {
   chart = null;
 

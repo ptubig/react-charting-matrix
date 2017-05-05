@@ -36,6 +36,28 @@ const stackedAreaChartData2 = [
   { name: '01/07', brand1: 24, brand2: 47, brand3: 100 },
 ];
 
+const groupedBarChartData1 = [
+  { name: 'BBC America', brand1: 66, brand2: 55, brand3: 16 },
+  { name: 'A&E Network', brand1: 69, brand2: 35, brand3: 25 },
+  { name: 'History Channel', brand1: 95, brand2: 12, brand3: 28 },
+  { name: 'Freeform', brand1: 21, brand2: 19, brand3: 2 },
+  { name: 'E! Entertainment', brand1: 28, brand2: 85, brand3: 16 },
+  { name: 'BET', brand1: 54, brand2: 5, brand3: 90 },
+  { name: 'Lifetime Network', brand1: 58, brand2: 31, brand3: 15 },
+  { name: 'Cooking Channel', brand1: 30, brand2: 77, brand3: 29 },
+];
+
+const groupedBarChartData2 = [
+  { name: 'BBC America', brand1: 34, brand2: 86, brand3: 77 },
+  { name: 'A&E Network', brand1: 36, brand2: 94, brand3: 47 },
+  { name: 'History Channel', brand1: 88, brand2: 37, brand3: 28 },
+  { name: 'Freeform', brand1: 100, brand2: 52, brand3: 13 },
+  { name: 'E! Entertainment', brand1: 28, brand2: 85, brand3: 16 },
+  { name: 'BET', brand1: 94, brand2: 47, brand3: 87 },
+  { name: 'Lifetime Network', brand1: 30, brand2: 33, brand3: 48 },
+  { name: 'Cooking Channel', brand1: 23, brand2: 34, brand3: 22 },
+];
+
 const WIDTH = 600;
 const HEIGHT = 400;
 
@@ -44,7 +66,8 @@ class App extends Component {
     super();
 
     this.state = {
-      stackedAreaChartData: stackedAreaChartData1
+      stackedAreaChartData: stackedAreaChartData1,
+      groupedBarChartData: groupedBarChartData1,
     };
   }
 
@@ -52,12 +75,15 @@ class App extends Component {
     this.setState({
       stackedAreaChartData: this.state.stackedAreaChartData === stackedAreaChartData1 ?
         stackedAreaChartData2 :
-        stackedAreaChartData1
+        stackedAreaChartData1,
+      groupedBarChartData: this.state.groupedBarChartData === groupedBarChartData1 ?
+        groupedBarChartData2 :
+        groupedBarChartData1
     });
   }
 
   render() {
-    const { stackedAreaChartData } = this.state;
+    const { stackedAreaChartData, groupedBarChartData } = this.state;
 
     return (
       <div className="App">
@@ -71,10 +97,12 @@ class App extends Component {
               height={ HEIGHT }
             />
             <GroupedBarChart
+              data={ groupedBarChartData }
               width={ WIDTH }
               height={ HEIGHT }
             />
             <GroupedBarChart
+              data={ groupedBarChartData }
               isVertical={ false }
               width={ WIDTH }
               height={ HEIGHT }
@@ -90,10 +118,12 @@ class App extends Component {
               height={ HEIGHT }
             />
             <VictoryGroupedBarChart
+              data={ groupedBarChartData }
               width={ WIDTH }
               height={ HEIGHT }
             />
             <VictoryGroupedBarChart
+              data={ groupedBarChartData }
               width={ WIDTH }
               height={ HEIGHT }
               isVertical={ false }
