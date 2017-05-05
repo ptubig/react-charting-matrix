@@ -1,17 +1,6 @@
 import React, { Component } from 'react';
 import Plottable from 'plottable';
 
-const data = [
-  { name: 'BBC America', brand1: 66, brand2: 55, brand3: 16 },
-  { name: 'A&E Network', brand1: 69, brand2: 35, brand3: 25 },
-  { name: 'History Channel', brand1: 95, brand2: 12, brand3: 28 },
-  { name: 'Freeform', brand1: 21, brand2: 19, brand3: 2 },
-  { name: 'E! Entertainment', brand1: 28, brand2: 85, brand3: 16 },
-  { name: 'BET', brand1: 54, brand2: 5, brand3: 90 },
-  { name: 'Lifetime Network', brand1: 58, brand2: 31, brand3: 15 },
-  { name: 'Cooking Channel', brand1: 30, brand2: 77, brand3: 29 },
-];
-
 class GroupedBarChart extends Component {
   canvas = null;
 
@@ -39,7 +28,7 @@ class GroupedBarChart extends Component {
     this.brand3Data.data(data.map(({ name, brand3 }) => ({ name, value: brand3 })));
   }
 
-  draw() {
+  draw(data) {
     const { isVertical = true } = this.props;
 
     const xScale = new Plottable.Scales.Category().domain(data.map(({ name }) => name));
