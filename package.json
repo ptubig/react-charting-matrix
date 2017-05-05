@@ -92,5 +92,5 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "http://ptubig.github.io/react-charting-matrix"
+  "homepage": "https://ptubig.github.io/react-charting-matrix"
 }
