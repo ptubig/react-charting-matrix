@@ -1,5 +1,7 @@
 # React Charting Matrix
- 
+
+Note: Still work ongoing
+
 ## Matrix
  
 | (as of 05/05/2017) | [Recharts](http://recharts.org/#/en-US/) | [Victory](http://formidable.com/open-source/victory/) | [Plottable](http://plottablejs.org/) | [NVD3](http://nvd3.org/) | [Rickshaw](http://code.shutterstock.com/rickshaw/) 
@@ -15,6 +17,7 @@
 | Transition |  | **X** |  | **X**
 | Package Size | 8.32M | 9.50M | 12.25M | 5.66M | 1.55M 
 | Documentation | **X** | **X** | **X** |
+| Isomorphic | **X** | **X**
 
 ## Criteria
 
@@ -26,6 +29,8 @@
 * **Transition** - Does the library add transitions when data changes (ie. `onEnter` and `onExit` functionality)
 * **Package Size** - Based off of the [cost-of-modules](https://github.com/siddharthkp/cost-of-modules) NPM package
 * **Documentation** - Provides a clear, comprehensive documentation
+* **Isomorphic** - Determines if charts can be rendered on the server side. It tests by running a server and serve up 
+`ReactDOMServer.renderToString(<ReactComponent />)`. Determine if the bundling doesn't give us errors.
 
 ## Libraries
 
