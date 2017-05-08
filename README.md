@@ -67,6 +67,9 @@ There is an issue when using `Plottable.Scales.Category` to have the graph start
 
 This requires to add a static .css file.
 
+**Isomorphic:** When trying to run Plottable isomorphic, it gives us a `window` undefined error. So the library is
+dependent on the client-side window object
+
 ### NVD3
 
 It advertises that "this project is an attempt to build re-usable charts and chart components for d3.js, wihtout 
@@ -78,6 +81,8 @@ But some of the "D3" components such as axis, has been dumbed down in NVD3 so yo
 with D3. And you may need to customize via CSS such as hiding the tick lines for a given axis
 
 This requires to add a static .css file.
+
+**Isomorphic:** NVD3 doesn't work because D3 fails 
 
 ### Rickshaw
 
